@@ -2,4 +2,10 @@ framework:
   - terraform
 compact: true
 quiet: true
-skip-check: []
+skip-check:
+  - CKV_AZURE_59          # El sitio debe ser público
+  - CKV2_AZURE_33         # Endpoint privado cuesta y bloquea el sitio público
+  - CKV2_AZURE_1          # Clave propia necesita Key Vault, no se justifica
+  - CKV_AZURE_206         # Replicación geográfica cuesta más
+  - CKV_AZURE_33          # No se usan colas
+  - CKV2_AZURE_40         # Terraform sube el archivo con la clave de cuenta
